@@ -47,3 +47,68 @@ employee({
     department: "CSE",
     
 })
+
+interface Person {
+    name: string;
+    age?: number;
+    greet(phrase: string): void;
+}
+
+class Employee implements Person {
+    name: string;
+    age?: number;
+
+    constructor(n: string, a: number) {
+        this.name = n;
+        this.age = a;
+    }
+
+    greet(phrase: string) {
+        console.log(`${phrase} ${this.name}`);
+    }
+}
+
+const e = new Employee("dinesh", 19);
+console.log(e);
+e.greet("Hello");
+
+// /* interfaces can be implemented as classes types cannot be */
+
+ ///type 
+type User1 = {
+	firstName: string;
+	lastName: string;
+	age: number
+}
+
+ ///unions
+type stringornumber = string | number;
+
+function printId(id: stringornumber) {
+  console.log(`ID: ${id}`);
+}
+
+printId(101); // ID: 101
+printId("202"); // ID: 202
+
+/// Intersection
+type Employee2 = {
+    name: string;
+    startDate: Date;
+  };
+  
+  type Manager = {
+    name: string;
+    department: string;
+  };
+  
+  type TeamLead = Employee2 & Manager;
+  
+  const teamLead: TeamLead = {
+    name: "developer",
+    startDate: new Date(),
+    department: "Software developer Enginner (SWE)"
+  };
+  console.log(teamLead)
+  //if you want to create a class that implement the types  then you have to use interfces
+  //in types you can do | or &
