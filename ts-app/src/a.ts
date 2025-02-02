@@ -112,3 +112,33 @@ type Employee2 = {
   console.log(teamLead)
   //if you want to create a class that implement the types  then you have to use interfces
   //in types you can do | or &
+
+
+  /// concept of enums in typescript
+
+  enum Direction {
+    Up,
+    Down,
+    Left,
+    Right
+}
+
+function doSomething(keyPressed: Direction) {
+	console.log("key pressed")
+}
+
+doSomething(Direction.Up)
+console.log(Direction.Up);
+console.log(Direction.Down);
+console.log(Direction.Left);
+
+
+function identity<T>(arg: T): T {
+    return arg;
+}
+
+let output1 = identity<string>("coderBhai");
+let output2 = identity<number>(100);
+
+console.log(output1)
+console.log( output2)
